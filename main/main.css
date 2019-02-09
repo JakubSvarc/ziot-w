@@ -1,0 +1,48 @@
+* {
+    font-family: 'Roboto Condensed', serif;
+}
+
+.grid {
+    display: grid;
+    gap: 70px;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    padding: 25px 0px;
+    font-size: 16px;
+}
+
+#footer {
+    row-gap: 20px;
+}
+
+.gridItem {
+    width: 250px;
+    padding: 30px;
+    border-radius: 8px;
+    background-color: #c57d7d;
+    color: #411
+}
+
+h1 {
+    margin-top: 0px; 
+    font-size: 24px;
+    font-weight: bold;
+}
+
+hr {
+    height: 3px;
+    border: none;
+    border-radius: 8px;
+    background-color: #411;
+}
+
+.data {
+    padding: 5px;
+    border-radius: 8px;
+    background-color: #611;
+    color: #daa;
+}
+
+.dataProperty {
+    margin: 15px;
+}
