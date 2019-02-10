@@ -2,25 +2,36 @@
     font-family: 'Roboto Condensed', serif;
 }
 
-.grid {
-    display: grid;
-    gap: 70px;
-    grid-template-columns: auto auto auto;
+#main {
+    display: flex;
+    flex-direction: row;
     justify-content: center;
-    padding: 25px 0px;
-    font-size: 16px;
 }
 
-#footer {
-    row-gap: 20px;
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
-.gridItem {
-    width: 250px;
+.item {
+    width: 290px;
+    margin: 30px;
     padding: 30px;
     border-radius: 8px;
     background-color: #c57d7d;
     color: #411
+}
+
+.subField {
+    padding: 5px;
+    border-radius: 8px;
+    background-color: #611;
+    color: #daa;
+}
+
+.subFieldProperty {
+    margin: 15px;
 }
 
 h1 {
@@ -36,13 +47,20 @@ hr {
     background-color: #411;
 }
 
-.data {
-    padding: 5px;
-    border-radius: 8px;
-    background-color: #611;
-    color: #daa;
+.idProperty {
+    opacity: 0.6;
+    font-weight: bold;
+    font-size: 14px;
 }
 
-.dataProperty {
-    margin: 15px;
+#footer {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    padding: 25px 0px;
+    font-size: 16px;
+}
+
+.footerItem {
+    margin: 10px 30px;
 }

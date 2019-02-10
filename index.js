@@ -19,3 +19,11 @@ function login() {
         password: document.getElementById('password').value
     }));
 }
+
+async function run() {
+    if (window.localStorage.getItem('id') && window.localStorage.getItem('token')) {
+        window.open('./main/main.html', '_self');
+    }
+}
+
+window.onload = run;
