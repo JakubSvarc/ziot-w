@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<!-- Created with Fritzing (http://www.fritzing.org/) -->
+<svg xmlns="http://www.w3.org/2000/svg" y="0in" xmlns:svg="http://www.w3.org/2000/svg"  version="1.2" width="1.20146in" viewBox="0 0 86.5052 36.5278" x="0in" height="0.507331in" baseProfile="tiny">
+ <g partID="57701">
+  <g transform="translate(0.794218,0.374963)">
+   <g  id="copper1">
+    <circle  fill="none" cx="3.01733" stroke="#fff" stroke-width="2" id="connector0pin" cy="3.01733" r="1.992124"/>
+   </g>
+  </g>
+ </g>
+ <g partID="57731">
+  <g transform="translate(29.5942,29.175)">
+   <g  id="copper1">
+    <circle  fill="none" cx="3.01733" stroke="#fff" stroke-width="2" id="connector0pin" cy="3.01733" r="1.992124"/>
+   </g>
+  </g>
+ </g>
+ <g partID="58051">
+  <g transform="translate(32.6556,3.43639)">
+   <g  id="copper1">
+    <circle  fill="none" cx="14.3559" stroke="#fff" stroke-width="3" id="nonconn0" cy="14.3559" r="14.3386"/>
+   </g>
+  </g>
+ </g>
+ <g partID="58101">
+  <g transform="translate(29.5942,0.374963)">
+   <g  id="copper1">
+    <circle  fill="none" cx="3.01733" stroke="#fff" stroke-width="2" id="connector0pin" cy="3.01733" r="1.992124"/>
+   </g>
+  </g>
+ </g>
+ <g partID="58211">
+  <g transform="translate(79.9942,0.374963)">
+   <g  id="copper1">
+    <circle  fill="none" cx="3.01733" stroke="#fff" stroke-width="2" id="connector0pin" cy="3.01733" r="1.992124"/>
+   </g>
+  </g>
+ </g>
+ <g partID="58241">
+  <g transform="translate(65.5942,29.175)">
+   <g  id="copper1">
+    <circle  fill="none" cx="3.01733" stroke="#fff" stroke-width="2" id="connector0pin" cy="3.01733" r="1.992124"/>
+   </g>
+  </g>
+ </g>
+ <g partID="57810">
+  <line y1="3.38007" stroke="#fff" stroke-width="3" x2="6.17847" y2="3.39151" stroke-linecap="round" x1="25.3804"/>
+ </g>
+ <g partID="57840">
+  <line y1="32.2101" stroke="#fff" stroke-width="3" x2="25.3804" y2="3.38007" stroke-linecap="round" x1="3.90706"/>
+ </g>
+ <g partID="57780">
+  <line y1="32.1931" stroke="#fff" stroke-width="3" x2="3.90706" y2="32.2101" stroke-linecap="round" x1="30.2446"/>
+ </g>
+ <g partID="57900">
+  <line y1="29.8254" stroke="#fff" stroke-width="3" x2="32.6115" y2="19.1592" stroke-linecap="round" x1="32.6115"/>
+ </g>
+ <g partID="58130">
+  <line y1="16.4254" stroke="#fff" stroke-width="3" x2="32.6115" y2="5.75922" stroke-linecap="round" x1="32.6115"/>
+ </g>
+ <g partID="58270">
+  <line y1="3.39114" stroke="#fff" stroke-width="3" x2="68.526" y2="3.38007" stroke-linecap="round" x1="80.6446"/>
+ </g>
+ <g partID="58300">
+  <line y1="3.38007" stroke="#fff" stroke-width="3" x2="48.3785" y2="3.39151" stroke-linecap="round" x1="68.526"/>
+ </g>
+ <g partID="58330">
+  <line y1="3.38007" stroke="#fff" stroke-width="3" x2="68.6075" y2="29.8254" stroke-linecap="round" x1="68.526"/>
+ </g>
+</svg>

@@ -42,9 +42,16 @@ const getStations = new Promise((resolve, reject) => {
     }));
 });
 
+/*function showHide(divName) {
+    const div = document.getElementById(divName);
+    if (div.style.display === 'none') {
+        div.style.display = 'block';
+    } else {
+        div.style.display = 'none';
+    }
+}*/
+
 async function run() {
-    const userDTO = await getUser;
-    const stationsDTO = await getStations;
     const main = document.getElementById('main');
     const col1 = document.createElement('div');
     col1.id = 'column1';
@@ -54,6 +61,10 @@ async function run() {
     col2.className += 'column';
     main.appendChild(col1);
     main.appendChild(col2);
+
+    const userDTO = await getUser;
+    let stationsDTO = await getStations;
+    //stationsDTO = [stationsDTO[0], stationsDTO[0], stationsDTO[0], stationsDTO[0], stationsDTO[0]]
     let maxColumns = 2;
     if (stationsDTO.length !== 1) {
         maxColumns = 3;
@@ -63,15 +74,17 @@ async function run() {
         main.appendChild(col3);
     }
     const userClass = new User();
-    const stationClass = new Station();
     userClass.createUser(userDTO);
     let currentColumn = 2;
+    let stationNumber = 1;
     for (station of stationsDTO) {
         if (currentColumn > maxColumns) {
             currentColumn = 1;
         }
-        stationClass.createStation(station, `column${currentColumn}`);
+        const stationClass = new Station();
+        stationClass.createStation(station, stationNumber, `column${currentColumn}`);
         currentColumn++;
+        stationNumber++;
     }
 }
 

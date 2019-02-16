@@ -1,41 +1,50 @@
 class User {
     createUser(userDTO) {
-        // constiables
-        const col = document.getElementById('column1');
-        const item = document.createElement('div');
-        item.className += 'item';
+        // h1
         const h1 = document.createElement('h1');
+        h1.appendChild(document.createTextNode('Uživatel'));
+
+        // hr
         const hr = document.createElement('hr');
-        const id = document.createElement('p');
+        hr.className += 'hrUser';
+
+        // id
         const idText = document.createElement('span');
         idText.className += 'idProperty';
-        const firstName = document.createElement('p');
-        const firstNameText = document.createElement('b');
-        const lastName = document.createElement('p');
-        const lastNameText = document.createElement('b');
-        const email = document.createElement('p');
-        const emailText = document.createElement('b');
-        const serverStatus = document.createElement('p');
-
-        // Inserting data
         idText.appendChild(document.createTextNode(`${window.localStorage.getItem('id')}`));
-        firstNameText.appendChild(document.createTextNode(`${userDTO.firstName}`));
-        lastNameText.appendChild(document.createTextNode(`${userDTO.lastName}`));
-        emailText.appendChild(document.createTextNode(`${userDTO.email}`));
-
-        // Inserting text
-        h1.appendChild(document.createTextNode('Uživatel'));
+        const id = document.createElement('p');
         id.appendChild(document.createTextNode(`ID: `));
         id.appendChild(idText);
+
+        // firstName
+        const firstNameText = document.createElement('b');
+        firstNameText.appendChild(document.createTextNode(`${userDTO.firstName}`));
+        const firstName = document.createElement('p');
         firstName.appendChild(document.createTextNode(`Jméno: `));
         firstName.appendChild(firstNameText);
+
+        // lastName
+        const lastNameText = document.createElement('b');
+        lastNameText.appendChild(document.createTextNode(`${userDTO.lastName}`));
+        const lastName = document.createElement('p');
         lastName.appendChild(document.createTextNode(`Příjmení: `));
         lastName.appendChild(lastNameText);
+
+        // email
+        const emailText = document.createElement('b');
+        emailText.appendChild(document.createTextNode(`${userDTO.email}`));
+        const email = document.createElement('p');
         email.appendChild(document.createTextNode(`E-mail: `));
         email.appendChild(emailText);
+
+        //serverStatus
+        const serverStatus = document.createElement('p');
         serverStatus.appendChild(document.createTextNode('Připojení k serveru: ON'));
-        
-        // Final insert to grid item
+
+        // item
+        const item = document.createElement('div');
+        item.id = 'user';
+        item.className += 'item';
         item.appendChild(h1);
         item.appendChild(hr);
         item.appendChild(id);
@@ -43,6 +52,9 @@ class User {
         item.appendChild(lastName);
         item.appendChild(email);
         item.appendChild(serverStatus);
+        
+        // column
+        const col = document.getElementById('column1');
         col.appendChild(item);
     }
 }

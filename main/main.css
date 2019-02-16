@@ -2,6 +2,37 @@
     font-family: 'Roboto Condensed', serif;
 }
 
+body {
+    margin: 0;
+    overflow-y: scroll;
+    overflow: -moz-scrollbars-vertical; 
+    background-attachment: fixed;
+    background-color: #DBEBBD;
+    background-image: url('../img/bg_l.svg');
+    background-position: 0% 80%;
+    background-repeat: no-repeat;
+    background-size: 60%;
+    color: #2F3F0F;
+}
+
+/* HEADER*/
+
+#header {
+    height: 120px;
+    width: 100%;
+    text-align: center;
+    background-color: #252D16;
+}
+
+#logo {
+    height: 50px;
+    margin: 20px 0;
+    padding: 10px;
+    border: 5px solid #fff;
+}
+
+/* MAIN */
+
 #main {
     display: flex;
     flex-direction: row;
@@ -15,19 +46,16 @@
 }
 
 .item {
-    width: 290px;
+    width: 300px;
     margin: 30px;
     padding: 30px;
-    border-radius: 8px;
-    background-color: #c57d7d;
-    color: #411
+    background-color: #fff;
 }
 
 .subField {
     padding: 5px;
-    border-radius: 8px;
-    background-color: #611;
-    color: #daa;
+    background-color: #2F3F0F;
+    color: #DBEBBD;
 }
 
 .subFieldProperty {
@@ -43,15 +71,64 @@ h1 {
 hr {
     height: 3px;
     border: none;
-    border-radius: 8px;
-    background-color: #411;
+    background-color: #2F3F0F;
+}
+
+.showButton {
+    cursor: pointer;
+    float: right;
+}
+
+.rotate {
+    animation: rotation 0.2s  linear;
+    -webkit-animation: rotation 0.2s  linear;
+    transform: rotateX(180deg);
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+    }
+}
+
+.rotateBack {
+    animation: rotationBack 0.2s  linear;
+    -webkit-animation: rotationBack 0.2s  linear;
+    transform: rotateX(0deg);
+}
+
+@keyframes rotationBack {
+    from {
+        transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+    }
+    to {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
 }
 
 .idProperty {
-    opacity: 0.6;
+    opacity: 0.7;
     font-weight: bold;
     font-size: 14px;
 }
+
+#user {
+    background-color: #2F3F0F;
+    color: #fff;
+}
+
+.hrUser {
+    background-color: #fff;
+}
+
+/* FOOTER */
 
 #footer {
     display: grid;
