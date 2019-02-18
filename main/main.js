@@ -1,57 +1,89 @@
-const getUser = new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'http://localhost:3000/api/v1/user/get', true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4) {
-            const res = JSON.parse(xhr.response);
-            if (xhr.status == 200) {
-                resolve(res);
-            } else {
-                reject(alert(res.message));
+function getUser() {
+    return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'http://localhost:3000/api/v1/user/get', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                if (xhr.status == 200) {
+                    const res = JSON.parse(xhr.response);
+                    resolve(res);
+                } else {
+                    reject(() => {
+                        window.open('../error/error.html', '_self')
+                    });
+                }
             }
         }
-    }
-    const id = window.localStorage.getItem('id');
-    const token = window.localStorage.getItem('token');
-    xhr.send(JSON.stringify({
-        id: id,
-        token: token,
-    }));
-});
+        const id = window.localStorage.getItem('id');
+        const token = window.localStorage.getItem('token');
+        xhr.send(JSON.stringify({
+            id: id,
+            token: token,
+        }));
+    });
+}
 
-const getStations = new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'http://localhost:3000/api/v1/station/get/many', true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4) {
-            const res = JSON.parse(xhr.response);
-            if (xhr.status == 200) {
-                resolve(res);
-            } else {
-                reject(alert(res.message));
+function getStations() {
+    return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'http://localhost:3000/api/v1/station/get/many', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                if (xhr.status == 200) {
+                    const res = JSON.parse(xhr.response);
+                    resolve(res);
+                } else {
+                    reject(() => {
+                        window.open('../error/error.html', '_self')
+                    });
+                }
             }
         }
-    }
-    const id = window.localStorage.getItem('id');
-    const token = window.localStorage.getItem('token');
-    xhr.send(JSON.stringify({
-        id: id,
-        token: token,
-    }));
-});
+        const id = window.localStorage.getItem('id');
+        const token = window.localStorage.getItem('token');
+        xhr.send(JSON.stringify({
+            id: id,
+            token: token,
+        }));
+    });
+}
 
-/*function showHide(divName) {
-    const div = document.getElementById(divName);
-    if (div.style.display === 'none') {
-        div.style.display = 'block';
-    } else {
-        div.style.display = 'none';
+function logout() {
+    new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'http://localhost:3000/api/v1/user/logout', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4) {
+                if (xhr.status == 204) {
+                    resolve();
+                } else {
+                    reject(() => {
+                        window.open('../error/error.html', '_self')
+                    });
+                }
+            }
+        }
+        xhr.send(JSON.stringify({
+            id: window.localStorage.getItem('id'),
+            token: window.localStorage.getItem('token'),
+        }));
+    });
+    window.localStorage.removeItem('id');
+    window.localStorage.removeItem('token');
+    window.open('../index.html', '_self');
+}
+
+function authentication() {
+    if (!window.localStorage.getItem('id') || !window.localStorage.getItem('token')) {
+        window.open('../error/error.html', '_self');
     }
-}*/
+}
 
 async function run() {
+    authentication();
     const main = document.getElementById('main');
     const col1 = document.createElement('div');
     col1.id = 'column1';
@@ -62,8 +94,8 @@ async function run() {
     main.appendChild(col1);
     main.appendChild(col2);
 
-    const userDTO = await getUser;
-    let stationsDTO = await getStations;
+    const userDTO = await getUser();
+    let stationsDTO = await getStations();
     //stationsDTO = [stationsDTO[0], stationsDTO[0], stationsDTO[0], stationsDTO[0], stationsDTO[0]]
     let maxColumns = 2;
     if (stationsDTO.length !== 1) {
