@@ -37,9 +37,12 @@ class User {
         email.appendChild(document.createTextNode(`E-mail: `));
         email.appendChild(emailText);
 
-        //serverStatus
-        const serverStatus = document.createElement('p');
-        serverStatus.appendChild(document.createTextNode('Připojení k serveru: ON'));
+        // stations number
+        const stationsNumberText = document.createElement('b');
+        stationsNumberText.appendChild(document.createTextNode((userDTO.stations).length));
+        const stationsNumber = document.createElement('p');
+        stationsNumber.appendChild(document.createTextNode('Počet stanic: '));
+        stationsNumber.appendChild(stationsNumberText);
 
         // item
         const item = document.createElement('div');
@@ -51,7 +54,7 @@ class User {
         item.appendChild(firstName);
         item.appendChild(lastName);
         item.appendChild(email);
-        item.appendChild(serverStatus);
+        item.appendChild(stationsNumber);
         
         // column
         const col = document.getElementById('column1');

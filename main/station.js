@@ -91,7 +91,7 @@ class Station {
         const lastEndText = document.createElement('b');
         const lastEnd = document.createElement('p');
         lastEnd.className += 'subFieldProperty ';
-        if (lastEnd === 0) {
+        if (stationDTO.activity.lastEnd === 0) {
             lastEndText.appendChild(document.createTextNode('Stále v provozu'));
         } else {
             lastEndText.appendChild(document.createTextNode(this.timeFormat(stationDTO.activity.lastEnd)));
@@ -118,6 +118,73 @@ class Station {
         const dataDiv = document.createElement('div');
         dataDiv.className += 'subField';
 
+        if (stationDTO.type === 'station01') {
+            const insideText = document.createElement('span');
+            insideText.className += 'nested0';
+            insideText.appendChild(document.createTextNode('Uvnitř'));
+            const br6 = document.createElement('br');
+            const hr2 = document.createElement('hr');
+            hr2.className += 'subFieldHr';
+
+            const tempInText = document.createElement('b');
+            tempInText.id = 'tempIn';
+            tempInText.appendChild(document.createTextNode('Nejsou k dispozici žádná data.'));
+            const tempIn = document.createElement('p');
+            tempIn.className += 'nested1';
+            tempIn.appendChild(document.createTextNode('Teplota: '));
+            tempIn.appendChild(tempInText);
+
+            const humInText = document.createElement('b');
+            humInText.id = 'humIn';
+            humInText.appendChild(document.createTextNode('Nejsou k dispozici žádná data.'));
+            const humIn = document.createElement('p');
+            humIn.className += 'nested1';
+            humIn.appendChild(document.createTextNode('Vlhkost: '));
+            humIn.appendChild(humInText);
+
+            const inside = document.createElement('p');
+            inside.className += 'subFieldProperty ';
+            inside.appendChild(insideText);
+            inside.appendChild(br6);
+            inside.appendChild(hr2);
+            inside.appendChild(tempIn);
+            inside.appendChild(humIn);
+
+            const outsideText = document.createElement('span');
+            outsideText.className += 'nested0';
+            outsideText.appendChild(document.createTextNode('Venku'));
+            const br7 = document.createElement('br');
+            const hr3 = document.createElement('hr');
+            hr3.className += 'subFieldHr';
+
+            const tempOutText = document.createElement('b');
+            tempOutText.id = 'tempOut';
+            tempOutText.appendChild(document.createTextNode('Nejsou k dispozici žádná data.'));
+            const tempOut = document.createElement('p');
+            tempOut.className += 'nested1';
+            tempOut.appendChild(document.createTextNode('Teplota: '));
+            tempOut.appendChild(tempOutText);
+
+            const humOutText = document.createElement('b');
+            humOutText.id = 'humOut';
+            humOutText.appendChild(document.createTextNode('Nejsou k dispozici žádná data.'));
+            const humOut = document.createElement('p');
+            humOut.className += 'nested1';
+            humOut.appendChild(document.createTextNode('Vlhkost: '));
+            humOut.appendChild(humOutText);
+
+            const outside = document.createElement('p');
+            outside.className += 'subFieldProperty ';
+            outside.appendChild(outsideText);
+            outside.appendChild(br7);
+            outside.appendChild(hr3);
+            outside.appendChild(tempOut);
+            outside.appendChild(humOut); 
+
+            dataDiv.appendChild(inside);
+            dataDiv.appendChild(outside);
+        }
+
         // item
         const item = document.createElement('div');
         item.className += 'item';
@@ -136,13 +203,28 @@ class Station {
         const col = document.getElementById(column);
         col.appendChild(item);
 
-        // show/hide click function
+        // apply show/hide click function
         document.getElementById(`locationButton${stationNumber}`).onclick = function() {
             Station.showHide(`locationDiv${stationNumber}`, `locationButton${stationNumber}`);
         }
         document.getElementById(`activityButton${stationNumber}`).onclick = function() {
             Station.showHide(`activityDiv${stationNumber}`, `activityButton${stationNumber}`);
         }
+
+        // apply data reading via WebSockets
+        const client = new Paho.MQTT.Client('127.0.0.1', 1884, `${stationDTO.type}/${stationDTO._id}/web/${Date.now()}`);
+        client.onMessageArrived = (message) => {
+            const parsedMessage = JSON.parse(message.payloadString);
+            document.getElementById('tempIn').innerText = `${parsedMessage.inside.temperature.toFixed(1)}°C`;
+            document.getElementById('humIn').innerText = `${parsedMessage.inside.humidity.toFixed(1)} %`;
+            document.getElementById('tempOut').innerText = `${parsedMessage.outside.temperature.toFixed(1)}°C`;
+            document.getElementById('humOut').innerText = `${parsedMessage.outside.humidity.toFixed(1)} %`;
+        };
+        client.connect({ 
+            onSuccess: () => {
+                client.subscribe(`${stationDTO.type}/${stationDTO._id}`);
+            }
+        });
     }
 
     timeFormat(UNIXTimestamp) {

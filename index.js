@@ -4,13 +4,15 @@ function login() {
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4) {
-            const res = JSON.parse(xhr.response);
             if (xhr.status == 200) {
+                const res = JSON.parse(xhr.response);
                 window.localStorage.setItem('id', res.id);
                 window.localStorage.setItem('token', res.token);
                 window.open('./main/main.html', '_self');
-            } else {
+            } else if (xhr.response){
                 alert(res.message);
+            } else {
+                window.open('./error/error.html', '_self');
             }
         }
     }

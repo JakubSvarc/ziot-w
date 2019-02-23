@@ -8,48 +8,24 @@ body {
     overflow: -moz-scrollbars-vertical; 
     background-attachment: fixed;
     background-color: #DBEBBD;
-    background-image: url('../img/bg_l.svg');
+    background-image: url('../img/bg.svg');
     background-position: 0% 80%;
     background-repeat: no-repeat;
-    background-size: 60%;
-    color: #2F3F0F;
+    background-size: 100%;
+    color: #252D16;
 }
 
-/* HEADER*/
+h1 {
+    margin-top: 0px; 
+    font-size: 24px;
+    font-weight: bold;
+}
 
-#header {
-    height: 120px;
-    width: 100%;
-    text-align: center;
+hr {
+    height: 4px;
+    border: none;
+    border-radius: 2px;
     background-color: #252D16;
-    color: #fff;
-}
-
-#logo {
-    height: 50px;
-    margin: 20px 0px;
-    padding: 10px;
-    border: 5px solid #fff;
-}
-
-.headerLeft {
-    float: left;
-    margin: 44px 30px;
-    font-size: 32px;
-    cursor: pointer;
-}
-
-.headerRight {
-    float: right;
-    margin: 44px 30px;
-    font-size: 32px;
-    cursor: pointer;
-}
-
-.separator {
-    margin: 30px 0px 34px 0px;
-    font-size: 48px;
-    cursor: initial;
 }
 
 /* MAIN */
@@ -70,29 +46,26 @@ body {
     width: 300px;
     margin: 30px;
     padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px #fff;
     background-color: #fff;
 }
 
 .subField {
     padding: 5px;
-    background-color: #2F3F0F;
+    border-radius: 8px;
+    background-color: #252D16;
     color: #DBEBBD;
+    font-size: 14px;
 }
 
 .subFieldProperty {
     margin: 15px;
 }
 
-h1 {
-    margin-top: 0px; 
-    font-size: 24px;
-    font-weight: bold;
-}
-
-hr {
-    height: 3px;
-    border: none;
-    background-color: #2F3F0F;
+.subFieldHr {
+    height: 2px;
+    background-color: #DBEBBD;
 }
 
 .showButton {
@@ -140,8 +113,18 @@ hr {
     font-size: 14px;
 }
 
+.nested0 {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.nested1 {
+    padding-left: 20px;
+}
+
 #user {
-    background-color: #2F3F0F;
+    box-shadow: 0px 0px 5px #252D16;
+    background-color: #252D16;
     color: #fff;
 }
 
