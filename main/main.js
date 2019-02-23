@@ -96,7 +96,7 @@ async function run() {
 
     const userDTO = await getUser();
     let stationsDTO = await getStations();
-    //stationsDTO = [stationsDTO[0], stationsDTO[0], stationsDTO[0], stationsDTO[0], stationsDTO[0]]
+    stationsDTO = [stationsDTO[0], stationsDTO[0], stationsDTO[0], stationsDTO[0], stationsDTO[0]]
     let maxColumns = 2;
     if (stationsDTO.length !== 1) {
         maxColumns = 3;

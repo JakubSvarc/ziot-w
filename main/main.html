@@ -3,37 +3,28 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>ZIOT</title>
+        <title>ZIOT - Hlavní stránka</title>
         <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
-        <link rel="stylesheet" type="text/css" href="../header.css"> 
+        <link rel="stylesheet" type="text/css" href="../universal.css"> 
         <link rel="stylesheet" type="text/css" href="./main.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
         <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
     <body>
         <div id="header">
-            <div id="leftBar">
-                <a href="https://github.com/JakubSvarc"><i class="fab fa-github headerItem"></i></a>
-                <a href="https://www.instagram.com/jakubsvarc_/"><i class="fab fa-instagram headerItem"></i></a>
-                <a href="https://www.facebook.com/kuba.s.svarc"><i class="fab fa-facebook-square headerItem"></i></a>
-            </div>
+            <i id="menu" class="fas fa-bars headerItem"></i>
             <div id="logoBox">                        
                 <a href="main.html"><img id="logo" src="../img/logo.svg" alt="ZIOT"></a>
             </div>
-            <div id="rightBar">
-                <i class="fas fa-bars headerItem"></i>
-                <i id="logout" class="fas fa-sign-out-alt headerItem" onclick="logout()"></i>
-            </div>
+            <i id="logout" class="fas fa-sign-out-alt headerItem" onclick="logout()"></i>
         </div>
         <div id="main">
         </div>
         <div id="footer">
-            <div class="item footerItem">Lorem ipsum dolor sit amet</div>
-            <div class="item footerItem">Lorem ipsum dolor sit amet</div>
-            <div class="item footerItem">Lorem ipsum dolor sit amet</div>
-            <div class="item footerItem">Lorem ipsum dolor sit amet</div>
-            <div class="item footerItem">Lorem ipsum dolor sit amet</div>
-            <div class="item footerItem">Lorem ipsum dolor sit amet</div>
+            <span id="copyright">Jakub Švarc © 2019</span>
+            <a href="https://github.com/JakubSvarc"><i class="fab fa-github footerItem"></i></a>
+            <a href="https://www.instagram.com/jakubsvarc_/"><i class="fab fa-instagram footerItem"></i></a>
+            <a href="https://www.facebook.com/kuba.s.svarc"><i class="fab fa-facebook-square footerItem"></i></a>
         </div>
         <script src="user.js"></script>
         <script src="station.js"></script>
