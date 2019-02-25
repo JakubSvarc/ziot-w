@@ -219,6 +219,7 @@ class Station {
             document.getElementById('humIn').innerText = `${parsedMessage.inside.humidity.toFixed(1)} %`;
             document.getElementById('tempOut').innerText = `${parsedMessage.outside.temperature.toFixed(1)}°C`;
             document.getElementById('humOut').innerText = `${parsedMessage.outside.humidity.toFixed(1)} %`;
+            footerPosition();
         };
         client.connect({ 
             onSuccess: () => {
@@ -245,5 +246,6 @@ class Station {
             document.getElementById(buttonName).className += 'rotateBack ';
             div.style.display = 'none';
         }
+        footerPosition();
     };
 }

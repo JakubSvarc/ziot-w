@@ -22,10 +22,19 @@ function login() {
     }));
 }
 
+function footerPosition() {
+    if (document.documentElement.scrollHeight <= document.documentElement.clientHeight) {
+        document.getElementById('footer').style.position = 'absolute';
+    } else {
+        document.getElementById('footer').style.position = 'relative';
+    }
+}
+
 async function run() {
     if (window.localStorage.getItem('id') && window.localStorage.getItem('token')) {
         window.open('./main/main.html', '_self');
     }
+    footerPosition()
 }
 
 window.onload = run;

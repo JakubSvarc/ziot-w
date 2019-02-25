@@ -15,8 +15,8 @@ body {
     color: #252D16;
 }
 
-a:hover, a:active, a:visited {
-    color: #fff;
+a, a:hover, a:active, a:visited {
+    color: inherit;
     text-decoration: none;
 }
 
@@ -26,41 +26,45 @@ a:hover, a:active, a:visited {
     height: 120px;
     width: 100%;
     box-shadow: 0px 0px 15px #252D16;
-    text-align: center;
     background-color: #252D16;
     color: #fff;
+    font-size: 18px;
+    font-weight: bold;
 }
 
-#logoBox {
-    height: 120px;
-    width: 150px;
-    margin: 0 auto;
+#headerLeft {
+    height: inherit;
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+
+#headerRight {
+    height: inherit;
+    width: 50%;
+    float: right;
+    text-align: center;
 }
 
 #logo {
     height: 50px;
-    margin: 20px 0px;
+    margin: 19px 0px;
     padding: 10px;
-    border: 5px solid #fff;
-    box-shadow: 0px 0px 3px #fff;
+    border: 6px solid #fff;
 }
 
-#menu {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-}
-
-#logout {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-}
-
-.headerItem {
-    margin: 44px;
-    font-size: 32px;
+.menuItem {
+    display: inline-block;
+    margin: 39px 20px;
+    padding: 10px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
     cursor: pointer;
+}
+
+.menuItem:hover {
+    background-color: #fff;
+    color: #252D16;
 }
 
 /* FOOTER */
@@ -70,18 +74,29 @@ a:hover, a:active, a:visited {
     bottom: 0px;
     height: 100px;
     width: 100%;
-    background-color: #0f1308;
+    background-color: #0c1104;
     text-align: right;
 }
 
 .footerItem {
     margin: 34px;
-    font-size: 32px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
     cursor: pointer;
+    opacity: 0.5;
+    color: #fff;
+    font-size: 32px;
 }
 
 #copyright {
     float: left;
     margin: 40px 100px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    opacity: 0.5;
     color: #fff;
+}
+
+#copyright:hover, .footerItem:hover {
+    opacity: 1;
 }
