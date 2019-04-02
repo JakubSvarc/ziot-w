@@ -10,7 +10,7 @@ function getUser() {
                     resolve(res);
                 } else {
                     reject(() => {
-                        window.open('../error/error.html', '_self')
+                        window.open('../error/error.html', '_self');
                     });
                 }
             }
@@ -36,7 +36,7 @@ function getStations() {
                     resolve(res);
                 } else {
                     reject(() => {
-                        window.open('../error/error.html', '_self')
+                        window.open('../error/error.html', '_self');
                     });
                 }
             }

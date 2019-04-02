@@ -9,7 +9,8 @@ function login() {
                 window.localStorage.setItem('id', res.id);
                 window.localStorage.setItem('token', res.token);
                 window.open('./main/main.html', '_self');
-            } else if (xhr.response){
+            } else if (xhr.response) {
+                const res = JSON.parse(xhr.response);
                 alert(res.message);
             } else {
                 window.open('./error/error.html', '_self');

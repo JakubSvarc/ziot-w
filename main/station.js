@@ -212,7 +212,7 @@ class Station {
         }
 
         // apply data reading via WebSockets
-        const client = new Paho.MQTT.Client('127.0.0.1', 1884, `${stationDTO.type}/${stationDTO._id}/web/${Date.now()}`);
+        const client = new Paho.MQTT.Client('127.0.0.1', 1884, `web/${stationDTO.type}/${stationDTO._id}/${Date.now()}`);
         client.onMessageArrived = (message) => {
             const parsedMessage = JSON.parse(message.payloadString);
             document.getElementById('tempIn').innerText = `${parsedMessage.inside.temperature.toFixed(1)}°C`;
